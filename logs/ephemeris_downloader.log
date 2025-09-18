@@ -1,0 +1,81 @@
+2025-09-18 18:46:31,135 - DEBUG - Using credentials from C:\Users\ILANEL\_netrc
+2025-09-18 18:46:31,137 - DEBUG - Using credentials from C:\Users\ILANEL\_netrc
+2025-09-18 18:46:31,137 - DEBUG - Session configured with authentication for user: ila***
+2025-09-18 18:46:31,137 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/261/25n/brdc2610.25n.gz
+2025-09-18 18:46:31,140 - DEBUG - Starting new HTTPS connection (1): cddis.nasa.gov:443
+2025-09-18 18:46:32,807 - DEBUG - https://cddis.nasa.gov:443 "GET /archive/gnss/data/daily/2025/261/25n/brdc2610.25n.gz HTTP/1.1" 302 454
+2025-09-18 18:46:32,820 - DEBUG - Starting new HTTPS connection (1): urs.earthdata.nasa.gov:443
+2025-09-18 18:46:36,037 - DEBUG - https://urs.earthdata.nasa.gov:443 "GET /oauth/authorize?client_id=gDQnv1IO0j9O2xXdwS8KMQ&response_type=code&redirect_uri=https%3A%2F%2Fcddis.nasa.gov%2Fproxyauth&state=aHR0cDovL2NkZGlzLm5hc2EuZ292L2FyY2hpdmUvZ25zcy9kYXRhL2RhaWx5LzIwMjUvMjYxLzI1bi9icmRjMjYxMC4yNW4uZ3o HTTP/1.1" 302 None
+2025-09-18 18:46:36,048 - DEBUG - Resetting dropped connection: cddis.nasa.gov
+2025-09-18 18:46:37,522 - DEBUG - https://cddis.nasa.gov:443 "GET /proxyauth?code=mDM2IMMDeLp0GhdMufAAXT__cPJeSiSLXeFWp2zyegil7xGXIB7MfUCaBi5pL1KHkN1Co7eKdlDumjLlvObXMDiw5gXFtN5NdOipvvOo3Nfx&state=aHR0cDovL2NkZGlzLm5hc2EuZ292L2FyY2hpdmUvZ25zcy9kYXRhL2RhaWx5LzIwMjUvMjYxLzI1bi9icmRjMjYxMC4yNW4uZ3o HTTP/1.1" 302 258
+2025-09-18 18:46:37,530 - DEBUG - Starting new HTTP connection (1): cddis.nasa.gov:80
+2025-09-18 18:46:37,831 - DEBUG - http://cddis.nasa.gov:80 "GET /archive/gnss/data/daily/2025/261/25n/brdc2610.25n.gz HTTP/1.1" 301 0
+2025-09-18 18:46:37,842 - DEBUG - Resetting dropped connection: cddis.nasa.gov
+2025-09-18 18:46:39,171 - DEBUG - https://cddis.nasa.gov:443 "GET /archive/gnss/data/daily/2025/261/25n/brdc2610.25n.gz HTTP/1.1" 200 35434
+2025-09-18 18:46:39,310 - INFO - Downloaded: data\2025\brdc2610.25n.gz (35434 bytes)
+2025-09-18 18:46:39,322 - INFO - Decompressed: data\2025\brdc2610.25n
+2025-09-18 18:46:39,322 - INFO - Completed: 1/1 files processed successfully
+2025-09-18 18:48:27,169 - DEBUG - Using credentials from C:\Users\ILANEL\_netrc
+2025-09-18 18:48:27,170 - DEBUG - Using credentials from C:\Users\ILANEL\_netrc
+2025-09-18 18:48:27,170 - DEBUG - Session configured with authentication for user: ila***
+2025-09-18 18:48:27,171 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/brdc/BRDM00DLR_S_20252610000_01D_MN.rnx.gz
+2025-09-18 18:48:27,172 - DEBUG - Starting new HTTPS connection (1): cddis.nasa.gov:443
+2025-09-18 18:48:28,480 - DEBUG - https://cddis.nasa.gov:443 "GET /archive/gnss/data/daily/2025/brdc/BRDM00DLR_S_20252610000_01D_MN.rnx.gz HTTP/1.1" 302 479
+2025-09-18 18:48:28,491 - DEBUG - Starting new HTTPS connection (1): urs.earthdata.nasa.gov:443
+2025-09-18 18:48:31,102 - DEBUG - https://urs.earthdata.nasa.gov:443 "GET /oauth/authorize?client_id=gDQnv1IO0j9O2xXdwS8KMQ&response_type=code&redirect_uri=https%3A%2F%2Fcddis.nasa.gov%2Fproxyauth&state=aHR0cDovL2NkZGlzLm5hc2EuZ292L2FyY2hpdmUvZ25zcy9kYXRhL2RhaWx5LzIwMjUvYnJkYy9CUkRNMDBETFJfU18yMDI1MjYxMDAwMF8wMURfTU4ucm54Lmd6 HTTP/1.1" 302 None
+2025-09-18 18:48:31,110 - DEBUG - Resetting dropped connection: cddis.nasa.gov
+2025-09-18 18:48:32,497 - DEBUG - https://cddis.nasa.gov:443 "GET /proxyauth?code=czN_AlaK9MoEf_BiAwUm--FOneEBUdYj0ETxW5qMceo0DIlfj7ZYSJ9CLfMBiqhyEueWaY6dPkq5CMdJ_w7DT-QKuNGHOFafobLyy4QNjojx&state=aHR0cDovL2NkZGlzLm5hc2EuZ292L2FyY2hpdmUvZ25zcy9kYXRhL2RhaWx5LzIwMjUvYnJkYy9CUkRNMDBETFJfU18yMDI1MjYxMDAwMF8wMURfTU4ucm54Lmd6 HTTP/1.1" 302 277
+2025-09-18 18:48:32,506 - DEBUG - Starting new HTTP connection (1): cddis.nasa.gov:80
+2025-09-18 18:48:32,821 - DEBUG - http://cddis.nasa.gov:80 "GET /archive/gnss/data/daily/2025/brdc/BRDM00DLR_S_20252610000_01D_MN.rnx.gz HTTP/1.1" 301 0
+2025-09-18 18:48:32,830 - DEBUG - Resetting dropped connection: cddis.nasa.gov
+2025-09-18 18:48:34,283 - DEBUG - https://cddis.nasa.gov:443 "GET /archive/gnss/data/daily/2025/brdc/BRDM00DLR_S_20252610000_01D_MN.rnx.gz HTTP/1.1" 404 None
+2025-09-18 18:48:34,284 - WARNING - File not found (404): https://cddis.nasa.gov/archive/gnss/data/daily/2025/brdc/BRDM00DLR_S_20252610000_01D_MN.rnx.gz - may not be available yet
+2025-09-18 18:48:34,288 - INFO - Completed: 0/1 files processed successfully
+2025-09-18 18:49:20,693 - DEBUG - Using credentials from C:\Users\ILANEL\_netrc
+2025-09-18 18:49:20,694 - DEBUG - Using credentials from C:\Users\ILANEL\_netrc
+2025-09-18 18:49:20,694 - DEBUG - Session configured with authentication for user: ila***
+2025-09-18 18:49:20,694 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/brdc/BRDM00DLR_S_20251990000_01D_MN.rnx.gz
+2025-09-18 18:49:20,696 - DEBUG - Starting new HTTPS connection (1): cddis.nasa.gov:443
+2025-09-18 18:49:22,160 - DEBUG - https://cddis.nasa.gov:443 "GET /archive/gnss/data/daily/2025/brdc/BRDM00DLR_S_20251990000_01D_MN.rnx.gz HTTP/1.1" 302 479
+2025-09-18 18:49:22,174 - DEBUG - Starting new HTTPS connection (1): urs.earthdata.nasa.gov:443
+2025-09-18 18:49:23,623 - DEBUG - https://urs.earthdata.nasa.gov:443 "GET /oauth/authorize?client_id=gDQnv1IO0j9O2xXdwS8KMQ&response_type=code&redirect_uri=https%3A%2F%2Fcddis.nasa.gov%2Fproxyauth&state=aHR0cDovL2NkZGlzLm5hc2EuZ292L2FyY2hpdmUvZ25zcy9kYXRhL2RhaWx5LzIwMjUvYnJkYy9CUkRNMDBETFJfU18yMDI1MTk5MDAwMF8wMURfTU4ucm54Lmd6 HTTP/1.1" 302 None
+2025-09-18 18:49:23,634 - DEBUG - Resetting dropped connection: cddis.nasa.gov
+2025-09-18 18:49:25,153 - DEBUG - https://cddis.nasa.gov:443 "GET /proxyauth?code=SZRetTIsak6eK9J5jfe6zsGCBn3Z2yYXkdRIdTr81iIP8KZObC5tQODjqbDwaGLA53yWxA-9cJbssBaNuOtbk9rfV5oUZfKNoCnIGMz2WSIL&state=aHR0cDovL2NkZGlzLm5hc2EuZ292L2FyY2hpdmUvZ25zcy9kYXRhL2RhaWx5LzIwMjUvYnJkYy9CUkRNMDBETFJfU18yMDI1MTk5MDAwMF8wMURfTU4ucm54Lmd6 HTTP/1.1" 302 277
+2025-09-18 18:49:25,163 - DEBUG - Starting new HTTP connection (1): cddis.nasa.gov:80
+2025-09-18 18:49:25,501 - DEBUG - http://cddis.nasa.gov:80 "GET /archive/gnss/data/daily/2025/brdc/BRDM00DLR_S_20251990000_01D_MN.rnx.gz HTTP/1.1" 301 0
+2025-09-18 18:49:25,510 - DEBUG - Resetting dropped connection: cddis.nasa.gov
+2025-09-18 18:49:26,877 - DEBUG - https://cddis.nasa.gov:443 "GET /archive/gnss/data/daily/2025/brdc/BRDM00DLR_S_20251990000_01D_MN.rnx.gz HTTP/1.1" 200 1395678
+2025-09-18 18:49:28,049 - INFO - Downloaded: data\2025\BRDM00DLR_S_20251990000_01D_MN.rnx.gz (1395678 bytes)
+2025-09-18 18:49:28,053 - INFO - Completed: 1/1 files processed successfully
+2025-09-18 18:50:11,538 - DEBUG - Using credentials from C:\Users\ILANEL\_netrc
+2025-09-18 18:50:11,539 - DEBUG - Using credentials from C:\Users\ILANEL\_netrc
+2025-09-18 18:50:11,539 - DEBUG - Session configured with authentication for user: ila***
+2025-09-18 18:50:11,541 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/258/25n/brdc2580.25n.gz
+2025-09-18 18:50:11,542 - DEBUG - Starting new HTTPS connection (1): cddis.nasa.gov:443
+2025-09-18 18:50:13,025 - DEBUG - https://cddis.nasa.gov:443 "GET /archive/gnss/data/daily/2025/258/25n/brdc2580.25n.gz HTTP/1.1" 302 454
+2025-09-18 18:50:13,032 - DEBUG - Starting new HTTPS connection (1): urs.earthdata.nasa.gov:443
+2025-09-18 18:50:15,644 - DEBUG - https://urs.earthdata.nasa.gov:443 "GET /oauth/authorize?client_id=gDQnv1IO0j9O2xXdwS8KMQ&response_type=code&redirect_uri=https%3A%2F%2Fcddis.nasa.gov%2Fproxyauth&state=aHR0cDovL2NkZGlzLm5hc2EuZ292L2FyY2hpdmUvZ25zcy9kYXRhL2RhaWx5LzIwMjUvMjU4LzI1bi9icmRjMjU4MC4yNW4uZ3o HTTP/1.1" 302 None
+2025-09-18 18:50:15,655 - DEBUG - Resetting dropped connection: cddis.nasa.gov
+2025-09-18 18:50:17,025 - DEBUG - https://cddis.nasa.gov:443 "GET /proxyauth?code=ZFkPhpIZQOYVHxOwrzAQC7xKBXWgB0Tc6hazMg9W5g-K-ZrvywmBx6rwGb2It_ybk5fEMA8B-q2eAW_vCg63KMK4BLGe6vFh09IzzRAmLwZj&state=aHR0cDovL2NkZGlzLm5hc2EuZ292L2FyY2hpdmUvZ25zcy9kYXRhL2RhaWx5LzIwMjUvMjU4LzI1bi9icmRjMjU4MC4yNW4uZ3o HTTP/1.1" 302 258
+2025-09-18 18:50:17,036 - DEBUG - Starting new HTTP connection (1): cddis.nasa.gov:80
+2025-09-18 18:50:17,354 - DEBUG - http://cddis.nasa.gov:80 "GET /archive/gnss/data/daily/2025/258/25n/brdc2580.25n.gz HTTP/1.1" 301 0
+2025-09-18 18:50:17,359 - DEBUG - Resetting dropped connection: cddis.nasa.gov
+2025-09-18 18:50:18,662 - DEBUG - https://cddis.nasa.gov:443 "GET /archive/gnss/data/daily/2025/258/25n/brdc2580.25n.gz HTTP/1.1" 200 56687
+2025-09-18 18:50:18,923 - INFO - Downloaded: data\2025\brdc2580.25n.gz (56687 bytes)
+2025-09-18 18:50:18,943 - INFO - Decompressed: data\2025\brdc2580.25n
+2025-09-18 18:50:18,944 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/259/25n/brdc2590.25n.gz
+2025-09-18 18:50:18,947 - DEBUG - Resetting dropped connection: cddis.nasa.gov
+2025-09-18 18:50:20,301 - DEBUG - https://cddis.nasa.gov:443 "GET /archive/gnss/data/daily/2025/259/25n/brdc2590.25n.gz HTTP/1.1" 200 56394
+2025-09-18 18:50:20,569 - INFO - Downloaded: data\2025\brdc2590.25n.gz (56394 bytes)
+2025-09-18 18:50:20,577 - INFO - Decompressed: data\2025\brdc2590.25n
+2025-09-18 18:50:20,578 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/260/25n/brdc2600.25n.gz
+2025-09-18 18:50:20,581 - DEBUG - Resetting dropped connection: cddis.nasa.gov
+2025-09-18 18:50:21,877 - DEBUG - https://cddis.nasa.gov:443 "GET /archive/gnss/data/daily/2025/260/25n/brdc2600.25n.gz HTTP/1.1" 200 55612
+2025-09-18 18:50:22,131 - INFO - Downloaded: data\2025\brdc2600.25n.gz (55612 bytes)
+2025-09-18 18:50:22,142 - INFO - Decompressed: data\2025\brdc2600.25n
+2025-09-18 18:50:22,143 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/261/25n/brdc2610.25n.gz
+2025-09-18 18:50:22,145 - DEBUG - Resetting dropped connection: cddis.nasa.gov
+2025-09-18 18:50:23,583 - DEBUG - https://cddis.nasa.gov:443 "GET /archive/gnss/data/daily/2025/261/25n/brdc2610.25n.gz HTTP/1.1" 200 35434
+2025-09-18 18:50:23,722 - INFO - Downloaded: data\2025\brdc2610.25n.gz (35434 bytes)
+2025-09-18 18:50:23,726 - INFO - Decompressed: data\2025\brdc2610.25n
+2025-09-18 18:50:23,726 - INFO - Completed: 4/4 files processed successfully
