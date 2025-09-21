@@ -37,7 +37,7 @@
 ## Usage
 
 ### Windows (GUI):
-Double-click `CDDIS_Downloader_ASCII.bat`
+Double-click `run_cddis_downloader.bat`
 
 ### Command Line:
 ```bash
