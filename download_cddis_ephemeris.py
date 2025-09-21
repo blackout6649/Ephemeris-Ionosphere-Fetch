@@ -2,10 +2,15 @@
 """
 NASA CDDIS GNSS Broadcast Ephemeris Downloader
 
+<<<<<<< Updated upstream
 Downloads GPS RINEX V2 BRDC and RINEX V3 multi-GNSS BRDM files from CDDIS.
 Handles Windows corporate environments with robust credential discovery.
 
 Author: Generated for corporate Windows environment
+=======
+Downloads GPS RINEX V2 BRDC, RINEX V3 multi-GNSS , and IONEX files from CDDIS.
+Includes fallback logic for IONEX types.
+>>>>>>> Stashed changes
 """
 
 import argparse
@@ -57,15 +62,51 @@ def build_url_and_name(date: datetime, ephemeris_type: str) -> Tuple[str, str]:
     year = date.year
     doy = date.timetuple().tm_yday  # Day of year
     yy = year % 100  # Two-digit year
+<<<<<<< Updated upstream
+=======
+
+    if data_type == "gps-v2":
+        """         
+        Daily RINEX V2 GPS Broadcast Ephemeris Files
+        File Naming Convention:
+        - Before Dec 1, 2020: YYYY/DDD/YYn/brdcDDD0.YYn.Z (compressed with .Z)
+        - After Dec 1, 2020:  YYYY/DDD/YYn/brdcDDD0.YYn.gz (compressed with .gz)
+        """
+        # Check if date is after December 1, 2020
+        cutoff_date = datetime(2020, 12, 1)
+
+        if date >= cutoff_date:
+            # Use .gz extension for dates after December 1, 2020
+            filename = f"brdc{doy:03d}0.{yy:02d}n.gz"
+        else:
+            # Use .Z extension for dates before December 1, 2020
+            filename = f"brdc{doy:03d}0.{yy:02d}n.Z"
+>>>>>>> Stashed changes
 
     if ephemeris_type == "gps-v2":
         # GPS RINEX V2 BRDC: brdcDDD0.YYn.gz
         filename = f"brdc{doy:03d}0.{yy:02d}n.gz"
         url = f"https://cddis.nasa.gov/archive/gnss/data/daily/{year}/{doy:03d}/{yy:02d}n/{filename}"
+<<<<<<< Updated upstream
     elif ephemeris_type == "brdm-v3":
         # RINEX V3 Multi-GNSS BRDM: BRDM00DLR_S_YYYYDDD0000_01D_MN.rnx.gz
         filename = f"BRDM00DLR_S_{year}{doy:03d}0000_01D_MN.rnx.gz"
         url = f"https://cddis.nasa.gov/archive/gnss/data/daily/{year}/brdc/{filename}"
+=======
+    elif data_type == "gnss-v3":
+        # Daily RINEX V3 GNSS Broadcast Ephemeris Files (IGS Combined)
+        # Note: These files are located in the /YYp/ subdirectory
+        filename = f"BRDC00IGS_R_{year}{doy:03d}0000_01D_MN.rnx.gz"
+        url = f"https://cddis.nasa.gov/archive/gnss/data/daily/{year}/{doy:03d}/{yy:02d}p/{filename}"
+    elif data_type == "ionex-v1":
+        # Old IONEX v1 format from IGS: igsgDDD0.YYi.Z
+        filename = f"igsg{doy:03d}0.{yy:02d}i.Z"
+        url = f"https://cddis.nasa.gov/archive/gnss/products/ionex/{year}/{doy:03d}/{filename}"
+    elif data_type == "ionex-v2":
+        # New IONEX format from IGS: IGS0OPSFIN_YYYYDDD0000_01D_02H_GIM.INX.gz
+        filename = f"IGS0OPSFIN_{year}{doy:03d}0000_01D_02H_GIM.INX.gz"
+        url = f"https://cddis.nasa.gov/archive/gnss/products/ionex/{year}/{doy:03d}/{filename}"
+>>>>>>> Stashed changes
     else:
         raise ValueError(f"Unknown ephemeris type: {ephemeris_type}")
 
@@ -187,8 +228,8 @@ def download_one(session: requests.Session, url: str, output_path: Path, skip_ex
         response = session.get(url, stream=True)
 
         if response.status_code == 404:
-            logging.warning(f"File not found (404): {url} - may not be available yet")
-            return False  # Non-fatal
+            logging.warning(f"File not found (404): {url}")
+            return False  # Non-fatal, allows fallback logic to trigger
         elif response.status_code in [401, 403]:
             logging.error(f"Authentication failed ({response.status_code}): {url}")
             logging.error("Check your NASA Earthdata credentials and ensure you've authorized CDDIS access")
@@ -304,10 +345,18 @@ def main() -> int:
         epilog="""
 Examples:
   # Single day GPS RINEX V2
-  python download_cddis_ephemeris.py --date 2025-09-18 --type gps-v2
+  python download_cddis.py --date 2025-09-18 --type gps-v2
 
+<<<<<<< Updated upstream
   # Date range BRDM with decompression
   python download_cddis_ephemeris.py --start 2025-09-15 --end 2025-09-18 --type brdm-v3 --decompress
+=======
+  # Date range GNSS RINEX V3 with decompression
+  python download_cddis.py --start 2025-01-15 --end 2025-03-18 --type gnss-v3 --decompress
+
+  # Date range for IONEX data (will try v2 if v1 fails, and vice versa)
+  python download_cddis.py --start 2022-12-28 --end 2023-01-03 --type ionex-v1
+>>>>>>> Stashed changes
         """
     )
 
@@ -317,8 +366,15 @@ Examples:
     date_group.add_argument("--start", help="Start date for range (YYYY-MM-DD)")
 
     parser.add_argument("--end", help="End date for range (YYYY-MM-DD)")
+<<<<<<< Updated upstream
     parser.add_argument("--type", choices=["gps-v2", "brdm-v3"], default="gps-v2",
                         help="Ephemeris type to download")
+=======
+    parser.add_argument("--type",
+                        choices=["gps-v2", "gnss-v3", "ionex-v1", "ionex-v2"],
+                        default="gps-v2",
+                        help="Data type to download. For ionex types, will attempt fallback to other version if primary is not found.")
+>>>>>>> Stashed changes
     parser.add_argument("--out", default=".", help="Output directory")
     parser.add_argument("--decompress", action="store_true",
                         help="Decompress .gz files after download")
@@ -414,19 +470,56 @@ Examples:
     total_count = 0
 
     while current_date <= end_date:
+        total_count += 1
+        download_successful = False
+
         try:
+<<<<<<< Updated upstream
             url, filename = build_url_and_name(current_date, args.type)
             year_dir = output_dir / str(current_date.year)
+=======
+            primary_type = args.type
+            url, filename = build_url_and_name(current_date, primary_type)
+
+            # --- Determine output subdirectory based on data type ---
+            base_data_dir = Path(args.out) / "data"
+            data_type_folder = "ionex" if 'ionex' in primary_type else "ephemeris"
+            year_dir = base_data_dir / data_type_folder / str(current_date.year)
+>>>>>>> Stashed changes
             file_path = year_dir / filename
 
-            total_count += 1
-
+            # --- Primary Download Attempt ---
             if download_one(session, url, file_path, args.skip_existing):
+<<<<<<< Updated upstream
                 success_count += 1
 
                 # Decompress if requested
                 if args.decompress and file_path.exists() and file_path.suffix == ".gz":
+=======
+                download_successful = True
+                if args.decompress and file_path.exists() and str(file_path).endswith(".gz"):
+>>>>>>> Stashed changes
                     decompress_gzip(file_path)
+            else:
+                # --- Fallback Logic for IONEX types ---
+                ionex_fallbacks = {"ionex-v1": "ionex-v2", "ionex-v2": "ionex-v1"}
+                if primary_type in ionex_fallbacks:
+                    fallback_type = ionex_fallbacks[primary_type]
+                    logging.info(
+                        f"'{primary_type}' not found for {current_date.date()}, trying fallback '{fallback_type}'")
+
+                    # Build URL and path for the fallback attempt
+                    fallback_url, fallback_filename = build_url_and_name(current_date, fallback_type)
+                    fallback_file_path = year_dir / fallback_filename  # Use same directory
+
+                    # Attempt fallback download
+                    if download_one(session, fallback_url, fallback_file_path, args.skip_existing):
+                        download_successful = True
+                        if args.decompress and fallback_file_path.exists() and str(fallback_file_path).endswith(".gz"):
+                            decompress_gzip(fallback_file_path)
+
+            if download_successful:
+                success_count += 1
 
         except Exception as e:
             logging.error(f"Failed to process {current_date.strftime('%Y-%m-%d')}: {e}")
