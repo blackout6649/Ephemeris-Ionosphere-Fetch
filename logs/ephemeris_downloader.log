@@ -1,0 +1,256 @@
+2025-09-21 14:13:44,018 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2023/015/23n/brdc0150.23n.gz
+2025-09-21 14:13:50,050 - INFO - Downloaded: data\ephemeris\2023\brdc0150.23n.gz (56212 bytes)
+2025-09-21 14:13:50,061 - INFO - Decompressed: data\ephemeris\2023\brdc0150.23n
+2025-09-21 14:13:50,062 - INFO - Completed: 1/1 files processed successfully
+2025-09-21 14:21:59,068 - INFO - Downloading: C:\work\Fetch_ephemeris_data_script\data\ephemeris\2025\BRDC00IGS_R_20252570000_01D_MN.rnx.gz
+2025-09-21 14:21:59,071 - ERROR - Download failed for C:\work\Fetch_ephemeris_data_script\data\ephemeris\2025\BRDC00IGS_R_20252570000_01D_MN.rnx.gz: No connection adapters were found for 'C:\\work\\Fetch_ephemeris_data_script\\data\\ephemeris\\2025\\BRDC00IGS_R_20252570000_01D_MN.rnx.gz'
+2025-09-21 14:21:59,081 - INFO - Downloading: C:\work\Fetch_ephemeris_data_script\data\ephemeris\2025\BRDC00IGS_R_20252580000_01D_MN.rnx.gz
+2025-09-21 14:21:59,086 - ERROR - Download failed for C:\work\Fetch_ephemeris_data_script\data\ephemeris\2025\BRDC00IGS_R_20252580000_01D_MN.rnx.gz: No connection adapters were found for 'C:\\work\\Fetch_ephemeris_data_script\\data\\ephemeris\\2025\\BRDC00IGS_R_20252580000_01D_MN.rnx.gz'
+2025-09-21 14:21:59,100 - INFO - Downloading: C:\work\Fetch_ephemeris_data_script\data\ephemeris\2025\BRDC00IGS_R_20252590000_01D_MN.rnx.gz
+2025-09-21 14:21:59,112 - ERROR - Download failed for C:\work\Fetch_ephemeris_data_script\data\ephemeris\2025\BRDC00IGS_R_20252590000_01D_MN.rnx.gz: No connection adapters were found for 'C:\\work\\Fetch_ephemeris_data_script\\data\\ephemeris\\2025\\BRDC00IGS_R_20252590000_01D_MN.rnx.gz'
+2025-09-21 14:21:59,130 - INFO - Downloading: C:\work\Fetch_ephemeris_data_script\data\ephemeris\2025\BRDC00IGS_R_20252600000_01D_MN.rnx.gz
+2025-09-21 14:21:59,145 - ERROR - Download failed for C:\work\Fetch_ephemeris_data_script\data\ephemeris\2025\BRDC00IGS_R_20252600000_01D_MN.rnx.gz: No connection adapters were found for 'C:\\work\\Fetch_ephemeris_data_script\\data\\ephemeris\\2025\\BRDC00IGS_R_20252600000_01D_MN.rnx.gz'
+2025-09-21 14:21:59,163 - INFO - Downloading: C:\work\Fetch_ephemeris_data_script\data\ephemeris\2025\BRDC00IGS_R_20252610000_01D_MN.rnx.gz
+2025-09-21 14:21:59,185 - ERROR - Download failed for C:\work\Fetch_ephemeris_data_script\data\ephemeris\2025\BRDC00IGS_R_20252610000_01D_MN.rnx.gz: No connection adapters were found for 'C:\\work\\Fetch_ephemeris_data_script\\data\\ephemeris\\2025\\BRDC00IGS_R_20252610000_01D_MN.rnx.gz'
+2025-09-21 14:21:59,201 - INFO - Downloading: C:\work\Fetch_ephemeris_data_script\data\ephemeris\2025\BRDC00IGS_R_20252620000_01D_MN.rnx.gz
+2025-09-21 14:21:59,213 - ERROR - Download failed for C:\work\Fetch_ephemeris_data_script\data\ephemeris\2025\BRDC00IGS_R_20252620000_01D_MN.rnx.gz: No connection adapters were found for 'C:\\work\\Fetch_ephemeris_data_script\\data\\ephemeris\\2025\\BRDC00IGS_R_20252620000_01D_MN.rnx.gz'
+2025-09-21 14:21:59,229 - INFO - Downloading: C:\work\Fetch_ephemeris_data_script\data\ephemeris\2025\BRDC00IGS_R_20252630000_01D_MN.rnx.gz
+2025-09-21 14:21:59,238 - ERROR - Download failed for C:\work\Fetch_ephemeris_data_script\data\ephemeris\2025\BRDC00IGS_R_20252630000_01D_MN.rnx.gz: No connection adapters were found for 'C:\\work\\Fetch_ephemeris_data_script\\data\\ephemeris\\2025\\BRDC00IGS_R_20252630000_01D_MN.rnx.gz'
+2025-09-21 14:21:59,248 - INFO - Downloading: C:\work\Fetch_ephemeris_data_script\data\ephemeris\2025\BRDC00IGS_R_20252640000_01D_MN.rnx.gz
+2025-09-21 14:21:59,258 - ERROR - Download failed for C:\work\Fetch_ephemeris_data_script\data\ephemeris\2025\BRDC00IGS_R_20252640000_01D_MN.rnx.gz: No connection adapters were found for 'C:\\work\\Fetch_ephemeris_data_script\\data\\ephemeris\\2025\\BRDC00IGS_R_20252640000_01D_MN.rnx.gz'
+2025-09-21 14:21:59,269 - INFO - --- Download Complete: 0/8 files processed successfully. ---
+2025-09-21 14:23:35,729 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2023/015/23n/brdc0150.23n.gz
+2025-09-21 14:23:42,684 - INFO - Downloaded: data\ephemeris\2023\brdc0150.23n.gz (56212 bytes)
+2025-09-21 14:23:42,696 - INFO - Decompressed: data\ephemeris\2023\brdc0150.23n
+2025-09-21 14:23:42,696 - INFO - Completed: 1/1 files processed successfully
+2025-09-21 14:28:51,624 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2016/351/16n/brdc3510.16n.gz
+2025-09-21 14:28:59,282 - WARNING - File not found (404): https://cddis.nasa.gov/archive/gnss/data/daily/2016/351/16n/brdc3510.16n.gz - may not be available yet
+2025-09-21 14:28:59,288 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2016/352/16n/brdc3520.16n.gz
+2025-09-21 14:29:00,765 - WARNING - File not found (404): https://cddis.nasa.gov/archive/gnss/data/daily/2016/352/16n/brdc3520.16n.gz - may not be available yet
+2025-09-21 14:29:00,768 - INFO - Completed: 0/2 files processed successfully
+2025-09-21 14:29:29,400 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2016/275/16n/brdc2750.16n.gz
+2025-09-21 14:29:35,606 - WARNING - File not found (404): https://cddis.nasa.gov/archive/gnss/data/daily/2016/275/16n/brdc2750.16n.gz - may not be available yet
+2025-09-21 14:29:35,611 - INFO - Completed: 0/1 files processed successfully
+2025-09-21 14:33:14,365 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2016/340/16n/brdc3400.16n.Z
+2025-09-21 14:33:21,531 - INFO - Downloaded: data\ephemeris\2016\brdc3400.16n.Z (65883 bytes)
+2025-09-21 14:33:21,535 - INFO - Completed: 1/1 files processed successfully
+2025-09-21 14:52:50,526 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/261/25n/brdc2610.25n.Z
+2025-09-21 14:52:59,738 - WARNING - File not found (404): https://cddis.nasa.gov/archive/gnss/data/daily/2025/261/25n/brdc2610.25n.Z - may not be available yet
+2025-09-21 14:52:59,742 - INFO - Completed: 0/1 files processed successfully
+2025-09-21 14:53:09,991 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2015/261/15n/brdc2610.15n.Z
+2025-09-21 14:53:17,985 - INFO - Downloaded: data\ephemeris\2015\brdc2610.15n.Z (67373 bytes)
+2025-09-21 14:53:17,989 - INFO - Completed: 1/1 files processed successfully
+2025-09-21 14:53:25,927 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2015/261/15n/brdc2610.15n.Z
+2025-09-21 14:53:34,450 - INFO - Downloaded: data\ephemeris\2015\brdc2610.15n.Z (67373 bytes)
+2025-09-21 14:53:34,458 - INFO - Completed: 1/1 files processed successfully
+2025-09-21 14:55:10,492 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/015/25p/BRDC00IGS_R_20250150000_01D_MN.rnx.gz
+2025-09-21 14:55:10,960 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/015/25p/BRDC00IGS_R_20250150000_01D_MN.rnx.gz
+2025-09-21 14:55:13,297 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/015/25p/BRDC00IGS_R_20250150000_01D_MN.rnx.gz
+2025-09-21 14:55:18,842 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/015/25p/BRDC00IGS_R_20250150000_01D_MN.rnx.gz
+2025-09-21 14:55:20,453 - ERROR - SSL/TLS error: HTTPSConnectionPool(host='cddis.nasa.gov', port=443): Max retries exceeded with url: /archive/gnss/data/daily/2025/015/25p/BRDC00IGS_R_20250150000_01D_MN.rnx.gz (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+2025-09-21 14:55:20,454 - ERROR - Try setting REQUESTS_CA_BUNDLE environment variable to your corporate CA bundle
+2025-09-21 14:55:20,454 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/016/25p/BRDC00IGS_R_20250160000_01D_MN.rnx.gz
+2025-09-21 14:55:21,837 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/016/25p/BRDC00IGS_R_20250160000_01D_MN.rnx.gz
+2025-09-21 14:55:25,413 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/016/25p/BRDC00IGS_R_20250160000_01D_MN.rnx.gz
+2025-09-21 14:55:30,947 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/016/25p/BRDC00IGS_R_20250160000_01D_MN.rnx.gz
+2025-09-21 14:55:56,807 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/015/25p/BRDC00IGS_R_20250150000_01D_MN.rnx.gz
+2025-09-21 14:55:57,095 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/015/25p/BRDC00IGS_R_20250150000_01D_MN.rnx.gz
+2025-09-21 14:55:59,373 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/015/25p/BRDC00IGS_R_20250150000_01D_MN.rnx.gz
+2025-09-21 14:56:04,512 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/015/25p/BRDC00IGS_R_20250150000_01D_MN.rnx.gz
+2025-09-21 14:56:05,794 - ERROR - SSL/TLS error: HTTPSConnectionPool(host='cddis.nasa.gov', port=443): Max retries exceeded with url: /archive/gnss/data/daily/2025/015/25p/BRDC00IGS_R_20250150000_01D_MN.rnx.gz (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+2025-09-21 14:56:05,795 - ERROR - Try setting REQUESTS_CA_BUNDLE environment variable to your corporate CA bundle
+2025-09-21 14:56:05,796 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/016/25p/BRDC00IGS_R_20250160000_01D_MN.rnx.gz
+2025-09-21 14:56:07,279 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/016/25p/BRDC00IGS_R_20250160000_01D_MN.rnx.gz
+2025-09-21 14:56:10,851 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/016/25p/BRDC00IGS_R_20250160000_01D_MN.rnx.gz
+2025-09-21 14:56:16,480 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/016/25p/BRDC00IGS_R_20250160000_01D_MN.rnx.gz
+2025-09-21 14:56:18,071 - ERROR - SSL/TLS error: HTTPSConnectionPool(host='cddis.nasa.gov', port=443): Max retries exceeded with url: /archive/gnss/data/daily/2025/016/25p/BRDC00IGS_R_20250160000_01D_MN.rnx.gz (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+2025-09-21 14:56:18,072 - ERROR - Try setting REQUESTS_CA_BUNDLE environment variable to your corporate CA bundle
+2025-09-21 14:56:18,072 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/017/25p/BRDC00IGS_R_20250170000_01D_MN.rnx.gz
+2025-09-21 14:56:19,641 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/017/25p/BRDC00IGS_R_20250170000_01D_MN.rnx.gz
+2025-09-21 14:56:23,204 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/017/25p/BRDC00IGS_R_20250170000_01D_MN.rnx.gz
+2025-09-21 14:56:28,698 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/017/25p/BRDC00IGS_R_20250170000_01D_MN.rnx.gz
+2025-09-21 14:56:30,153 - ERROR - SSL/TLS error: HTTPSConnectionPool(host='cddis.nasa.gov', port=443): Max retries exceeded with url: /archive/gnss/data/daily/2025/017/25p/BRDC00IGS_R_20250170000_01D_MN.rnx.gz (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+2025-09-21 14:56:30,153 - ERROR - Try setting REQUESTS_CA_BUNDLE environment variable to your corporate CA bundle
+2025-09-21 14:56:30,154 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/018/25p/BRDC00IGS_R_20250180000_01D_MN.rnx.gz
+2025-09-21 14:56:31,454 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/018/25p/BRDC00IGS_R_20250180000_01D_MN.rnx.gz
+2025-09-21 14:56:35,065 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/018/25p/BRDC00IGS_R_20250180000_01D_MN.rnx.gz
+2025-09-21 14:56:40,583 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/018/25p/BRDC00IGS_R_20250180000_01D_MN.rnx.gz
+2025-09-21 14:56:42,116 - ERROR - SSL/TLS error: HTTPSConnectionPool(host='cddis.nasa.gov', port=443): Max retries exceeded with url: /archive/gnss/data/daily/2025/018/25p/BRDC00IGS_R_20250180000_01D_MN.rnx.gz (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+2025-09-21 14:56:42,117 - ERROR - Try setting REQUESTS_CA_BUNDLE environment variable to your corporate CA bundle
+2025-09-21 14:56:42,118 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/019/25p/BRDC00IGS_R_20250190000_01D_MN.rnx.gz
+2025-09-21 14:56:43,635 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/019/25p/BRDC00IGS_R_20250190000_01D_MN.rnx.gz
+2025-09-21 14:56:47,046 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/019/25p/BRDC00IGS_R_20250190000_01D_MN.rnx.gz
+2025-09-21 14:56:52,608 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)'))': /archive/gnss/data/daily/2025/019/25p/BRDC00IGS_R_20250190000_01D_MN.rnx.gz
+2025-09-21 14:56:54,009 - ERROR - SSL/TLS error: HTTPSConnectionPool(host='cddis.nasa.gov', port=443): Max retries exceeded with url: /archive/gnss/data/daily/2025/019/25p/BRDC00IGS_R_20250190000_01D_MN.rnx.gz (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+2025-09-21 14:56:54,010 - ERROR - Try setting REQUESTS_CA_BUNDLE environment variable to your corporate CA bundle
+2025-09-21 14:56:54,010 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/020/25p/BRDC00IGS_R_20250200000_01D_MN.rnx.gz
+2025-09-21 14:57:25,235 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2015/261/15n/brdc2610.15n.Z
+2025-09-21 14:57:33,589 - INFO - Downloaded: data\ephemeris\2015\brdc2610.15n.Z (67373 bytes)
+2025-09-21 14:57:33,592 - INFO - Completed: 1/1 files processed successfully
+2025-09-21 14:57:40,974 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/015/25p/BRDC00IGS_R_20250150000_01D_MN.rnx.gz
+2025-09-21 14:57:50,057 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250150000_01D_MN.rnx.gz (1297154 bytes)
+2025-09-21 14:57:50,132 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250150000_01D_MN.rnx
+2025-09-21 14:57:50,133 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/016/25p/BRDC00IGS_R_20250160000_01D_MN.rnx.gz
+2025-09-21 14:57:54,577 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250160000_01D_MN.rnx.gz (1300439 bytes)
+2025-09-21 14:57:54,652 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250160000_01D_MN.rnx
+2025-09-21 14:57:54,653 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/017/25p/BRDC00IGS_R_20250170000_01D_MN.rnx.gz
+2025-09-21 14:57:58,352 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250170000_01D_MN.rnx.gz (1288374 bytes)
+2025-09-21 14:57:58,400 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250170000_01D_MN.rnx
+2025-09-21 14:57:58,401 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/018/25p/BRDC00IGS_R_20250180000_01D_MN.rnx.gz
+2025-09-21 14:58:02,047 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250180000_01D_MN.rnx.gz (1281750 bytes)
+2025-09-21 14:58:02,073 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250180000_01D_MN.rnx
+2025-09-21 14:58:02,075 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/019/25p/BRDC00IGS_R_20250190000_01D_MN.rnx.gz
+2025-09-21 14:58:05,753 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250190000_01D_MN.rnx.gz (1278412 bytes)
+2025-09-21 14:58:05,781 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250190000_01D_MN.rnx
+2025-09-21 14:58:05,781 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/020/25p/BRDC00IGS_R_20250200000_01D_MN.rnx.gz
+2025-09-21 14:58:09,487 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250200000_01D_MN.rnx.gz (1295267 bytes)
+2025-09-21 14:58:09,578 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250200000_01D_MN.rnx
+2025-09-21 14:58:09,583 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/021/25p/BRDC00IGS_R_20250210000_01D_MN.rnx.gz
+2025-09-21 14:58:13,287 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250210000_01D_MN.rnx.gz (1312272 bytes)
+2025-09-21 14:58:13,389 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250210000_01D_MN.rnx
+2025-09-21 14:58:13,390 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/022/25p/BRDC00IGS_R_20250220000_01D_MN.rnx.gz
+2025-09-21 14:58:17,091 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250220000_01D_MN.rnx.gz (1290419 bytes)
+2025-09-21 14:58:17,119 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250220000_01D_MN.rnx
+2025-09-21 14:58:17,120 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/023/25p/BRDC00IGS_R_20250230000_01D_MN.rnx.gz
+2025-09-21 14:58:20,040 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250230000_01D_MN.rnx.gz (1292844 bytes)
+2025-09-21 14:58:20,072 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250230000_01D_MN.rnx
+2025-09-21 14:58:20,072 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/024/25p/BRDC00IGS_R_20250240000_01D_MN.rnx.gz
+2025-09-21 14:58:23,075 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250240000_01D_MN.rnx.gz (1281394 bytes)
+2025-09-21 14:58:23,163 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250240000_01D_MN.rnx
+2025-09-21 14:58:23,164 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/025/25p/BRDC00IGS_R_20250250000_01D_MN.rnx.gz
+2025-09-21 14:58:26,777 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250250000_01D_MN.rnx.gz (1242353 bytes)
+2025-09-21 14:58:26,822 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250250000_01D_MN.rnx
+2025-09-21 14:58:26,823 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/026/25p/BRDC00IGS_R_20250260000_01D_MN.rnx.gz
+2025-09-21 14:58:30,328 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250260000_01D_MN.rnx.gz (1226793 bytes)
+2025-09-21 14:58:30,355 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250260000_01D_MN.rnx
+2025-09-21 14:58:30,355 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/027/25p/BRDC00IGS_R_20250270000_01D_MN.rnx.gz
+2025-09-21 14:58:34,038 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250270000_01D_MN.rnx.gz (1240990 bytes)
+2025-09-21 14:58:34,082 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250270000_01D_MN.rnx
+2025-09-21 14:58:34,083 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/028/25p/BRDC00IGS_R_20250280000_01D_MN.rnx.gz
+2025-09-21 14:58:38,538 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250280000_01D_MN.rnx.gz (1279173 bytes)
+2025-09-21 14:58:38,575 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250280000_01D_MN.rnx
+2025-09-21 14:58:38,576 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/029/25p/BRDC00IGS_R_20250290000_01D_MN.rnx.gz
+2025-09-21 14:58:42,257 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250290000_01D_MN.rnx.gz (1291203 bytes)
+2025-09-21 14:58:42,343 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250290000_01D_MN.rnx
+2025-09-21 14:58:42,343 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/030/25p/BRDC00IGS_R_20250300000_01D_MN.rnx.gz
+2025-09-21 14:58:46,057 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250300000_01D_MN.rnx.gz (1301794 bytes)
+2025-09-21 14:58:46,164 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250300000_01D_MN.rnx
+2025-09-21 14:58:46,164 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/031/25p/BRDC00IGS_R_20250310000_01D_MN.rnx.gz
+2025-09-21 14:58:49,755 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250310000_01D_MN.rnx.gz (1303531 bytes)
+2025-09-21 14:58:49,855 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250310000_01D_MN.rnx
+2025-09-21 14:58:49,856 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/032/25p/BRDC00IGS_R_20250320000_01D_MN.rnx.gz
+2025-09-21 14:58:53,468 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250320000_01D_MN.rnx.gz (1299691 bytes)
+2025-09-21 14:58:53,533 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250320000_01D_MN.rnx
+2025-09-21 14:58:53,534 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/033/25p/BRDC00IGS_R_20250330000_01D_MN.rnx.gz
+2025-09-21 14:58:58,046 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250330000_01D_MN.rnx.gz (1304336 bytes)
+2025-09-21 14:58:58,113 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250330000_01D_MN.rnx
+2025-09-21 14:58:58,114 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/034/25p/BRDC00IGS_R_20250340000_01D_MN.rnx.gz
+2025-09-21 14:59:01,608 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250340000_01D_MN.rnx.gz (1277489 bytes)
+2025-09-21 14:59:01,649 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250340000_01D_MN.rnx
+2025-09-21 14:59:01,650 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/035/25p/BRDC00IGS_R_20250350000_01D_MN.rnx.gz
+2025-09-21 14:59:05,214 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250350000_01D_MN.rnx.gz (1283126 bytes)
+2025-09-21 14:59:05,265 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250350000_01D_MN.rnx
+2025-09-21 14:59:05,265 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/036/25p/BRDC00IGS_R_20250360000_01D_MN.rnx.gz
+2025-09-21 14:59:08,166 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250360000_01D_MN.rnx.gz (1278097 bytes)
+2025-09-21 14:59:08,240 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250360000_01D_MN.rnx
+2025-09-21 14:59:08,241 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/037/25p/BRDC00IGS_R_20250370000_01D_MN.rnx.gz
+2025-09-21 14:59:11,715 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250370000_01D_MN.rnx.gz (1291147 bytes)
+2025-09-21 14:59:11,751 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250370000_01D_MN.rnx
+2025-09-21 14:59:11,752 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/038/25p/BRDC00IGS_R_20250380000_01D_MN.rnx.gz
+2025-09-21 14:59:15,405 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250380000_01D_MN.rnx.gz (1292594 bytes)
+2025-09-21 14:59:15,476 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250380000_01D_MN.rnx
+2025-09-21 14:59:15,479 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/039/25p/BRDC00IGS_R_20250390000_01D_MN.rnx.gz
+2025-09-21 14:59:19,060 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250390000_01D_MN.rnx.gz (1298436 bytes)
+2025-09-21 14:59:19,142 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250390000_01D_MN.rnx
+2025-09-21 14:59:19,143 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/040/25p/BRDC00IGS_R_20250400000_01D_MN.rnx.gz
+2025-09-21 14:59:22,896 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250400000_01D_MN.rnx.gz (1295350 bytes)
+2025-09-21 14:59:22,945 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250400000_01D_MN.rnx
+2025-09-21 14:59:22,946 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/041/25p/BRDC00IGS_R_20250410000_01D_MN.rnx.gz
+2025-09-21 14:59:26,728 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250410000_01D_MN.rnx.gz (1306182 bytes)
+2025-09-21 14:59:26,815 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250410000_01D_MN.rnx
+2025-09-21 14:59:26,815 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/042/25p/BRDC00IGS_R_20250420000_01D_MN.rnx.gz
+2025-09-21 14:59:30,529 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250420000_01D_MN.rnx.gz (1327177 bytes)
+2025-09-21 14:59:30,628 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250420000_01D_MN.rnx
+2025-09-21 14:59:30,629 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/043/25p/BRDC00IGS_R_20250430000_01D_MN.rnx.gz
+2025-09-21 14:59:34,202 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250430000_01D_MN.rnx.gz (1283271 bytes)
+2025-09-21 14:59:34,291 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250430000_01D_MN.rnx
+2025-09-21 14:59:34,292 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/044/25p/BRDC00IGS_R_20250440000_01D_MN.rnx.gz
+2025-09-21 14:59:37,994 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250440000_01D_MN.rnx.gz (1275139 bytes)
+2025-09-21 14:59:38,081 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250440000_01D_MN.rnx
+2025-09-21 14:59:38,083 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/045/25p/BRDC00IGS_R_20250450000_01D_MN.rnx.gz
+2025-09-21 14:59:41,716 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250450000_01D_MN.rnx.gz (1265609 bytes)
+2025-09-21 14:59:41,773 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250450000_01D_MN.rnx
+2025-09-21 14:59:41,775 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/046/25p/BRDC00IGS_R_20250460000_01D_MN.rnx.gz
+2025-09-21 14:59:45,128 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250460000_01D_MN.rnx.gz (1278252 bytes)
+2025-09-21 14:59:45,229 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250460000_01D_MN.rnx
+2025-09-21 14:59:45,230 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/047/25p/BRDC00IGS_R_20250470000_01D_MN.rnx.gz
+2025-09-21 14:59:48,932 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250470000_01D_MN.rnx.gz (1254535 bytes)
+2025-09-21 14:59:48,987 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250470000_01D_MN.rnx
+2025-09-21 14:59:48,988 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/048/25p/BRDC00IGS_R_20250480000_01D_MN.rnx.gz
+2025-09-21 14:59:52,558 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250480000_01D_MN.rnx.gz (1227552 bytes)
+2025-09-21 14:59:52,605 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250480000_01D_MN.rnx
+2025-09-21 14:59:52,606 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/049/25p/BRDC00IGS_R_20250490000_01D_MN.rnx.gz
+2025-09-21 14:59:56,358 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250490000_01D_MN.rnx.gz (1257693 bytes)
+2025-09-21 14:59:56,446 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250490000_01D_MN.rnx
+2025-09-21 14:59:56,447 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/050/25p/BRDC00IGS_R_20250500000_01D_MN.rnx.gz
+2025-09-21 15:00:00,152 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250500000_01D_MN.rnx.gz (1267918 bytes)
+2025-09-21 15:00:00,266 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250500000_01D_MN.rnx
+2025-09-21 15:00:00,267 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/051/25p/BRDC00IGS_R_20250510000_01D_MN.rnx.gz
+2025-09-21 15:00:03,227 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250510000_01D_MN.rnx.gz (1289063 bytes)
+2025-09-21 15:00:03,260 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250510000_01D_MN.rnx
+2025-09-21 15:00:03,261 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/052/25p/BRDC00IGS_R_20250520000_01D_MN.rnx.gz
+2025-09-21 15:00:06,362 - INFO - Downloaded: data\ephemeris\2025\BRDC00IGS_R_20250520000_01D_MN.rnx.gz (1285039 bytes)
+2025-09-21 15:00:06,406 - INFO - Decompressed: data\ephemeris\2025\BRDC00IGS_R_20250520000_01D_MN.rnx
+2025-09-21 15:00:06,407 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/053/25p/BRDC00IGS_R_20250530000_01D_MN.rnx.gz
+2025-09-21 15:10:33,545 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/001/25n/brdc0010.25n.Z
+2025-09-21 15:10:43,546 - WARNING - File not found (404): https://cddis.nasa.gov/archive/gnss/data/daily/2025/001/25n/brdc0010.25n.Z - may not be available yet
+2025-09-21 15:10:43,552 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/002/25n/brdc0020.25n.Z
+2025-09-21 15:10:46,002 - WARNING - File not found (404): https://cddis.nasa.gov/archive/gnss/data/daily/2025/002/25n/brdc0020.25n.Z - may not be available yet
+2025-09-21 15:10:46,006 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/003/25n/brdc0030.25n.Z
+2025-09-21 15:10:48,567 - WARNING - File not found (404): https://cddis.nasa.gov/archive/gnss/data/daily/2025/003/25n/brdc0030.25n.Z - may not be available yet
+2025-09-21 15:10:48,571 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/004/25n/brdc0040.25n.Z
+2025-09-21 15:10:51,185 - WARNING - File not found (404): https://cddis.nasa.gov/archive/gnss/data/daily/2025/004/25n/brdc0040.25n.Z - may not be available yet
+2025-09-21 15:10:51,192 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/005/25n/brdc0050.25n.Z
+2025-09-21 15:10:53,884 - WARNING - File not found (404): https://cddis.nasa.gov/archive/gnss/data/daily/2025/005/25n/brdc0050.25n.Z - may not be available yet
+2025-09-21 15:10:53,886 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/006/25n/brdc0060.25n.Z
+2025-09-21 15:10:56,424 - WARNING - File not found (404): https://cddis.nasa.gov/archive/gnss/data/daily/2025/006/25n/brdc0060.25n.Z - may not be available yet
+2025-09-21 15:10:56,427 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/007/25n/brdc0070.25n.Z
+2025-09-21 15:10:59,009 - WARNING - File not found (404): https://cddis.nasa.gov/archive/gnss/data/daily/2025/007/25n/brdc0070.25n.Z - may not be available yet
+2025-09-21 15:10:59,012 - INFO - Completed: 0/7 files processed successfully
+2025-09-21 15:14:47,358 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/001/25n/brdc0010.25n.gz
+2025-09-21 15:14:56,360 - INFO - Downloaded: data\ephemeris\2025\brdc0010.25n.gz (52364 bytes)
+2025-09-21 15:14:56,372 - INFO - Decompressed: data\ephemeris\2025\brdc0010.25n
+2025-09-21 15:14:56,375 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/002/25n/brdc0020.25n.gz
+2025-09-21 15:14:59,069 - INFO - Downloaded: data\ephemeris\2025\brdc0020.25n.gz (51987 bytes)
+2025-09-21 15:14:59,076 - INFO - Decompressed: data\ephemeris\2025\brdc0020.25n
+2025-09-21 15:14:59,077 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/003/25n/brdc0030.25n.gz
+2025-09-21 15:15:00,977 - INFO - Downloaded: data\ephemeris\2025\brdc0030.25n.gz (52444 bytes)
+2025-09-21 15:15:00,981 - INFO - Decompressed: data\ephemeris\2025\brdc0030.25n
+2025-09-21 15:15:00,981 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/004/25n/brdc0040.25n.gz
+2025-09-21 15:15:02,955 - INFO - Downloaded: data\ephemeris\2025\brdc0040.25n.gz (51336 bytes)
+2025-09-21 15:15:02,964 - INFO - Decompressed: data\ephemeris\2025\brdc0040.25n
+2025-09-21 15:15:02,964 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/005/25n/brdc0050.25n.gz
+2025-09-21 15:15:05,010 - INFO - Downloaded: data\ephemeris\2025\brdc0050.25n.gz (51810 bytes)
+2025-09-21 15:15:05,024 - INFO - Decompressed: data\ephemeris\2025\brdc0050.25n
+2025-09-21 15:15:05,024 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/006/25n/brdc0060.25n.gz
+2025-09-21 15:15:07,524 - INFO - Downloaded: data\ephemeris\2025\brdc0060.25n.gz (51442 bytes)
+2025-09-21 15:15:07,531 - INFO - Decompressed: data\ephemeris\2025\brdc0060.25n
+2025-09-21 15:15:07,532 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2025/007/25n/brdc0070.25n.gz
+2025-09-21 15:15:10,110 - INFO - Downloaded: data\ephemeris\2025\brdc0070.25n.gz (51274 bytes)
+2025-09-21 15:15:10,122 - INFO - Decompressed: data\ephemeris\2025\brdc0070.25n
+2025-09-21 15:15:10,125 - INFO - Completed: 7/7 files processed successfully
+2025-09-21 15:19:07,580 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2015/001/15n/brdc0010.15n.Z
+2025-09-21 15:19:16,868 - INFO - Downloaded: data\ephemeris\2015\brdc0010.15n.Z (67223 bytes)
+2025-09-21 15:19:16,874 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2015/002/15n/brdc0020.15n.Z
+2025-09-21 15:19:19,629 - INFO - Downloaded: data\ephemeris\2015\brdc0020.15n.Z (67147 bytes)
+2025-09-21 15:19:19,633 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2015/003/15n/brdc0030.15n.Z
+2025-09-21 15:19:22,480 - INFO - Downloaded: data\ephemeris\2015\brdc0030.15n.Z (66877 bytes)
+2025-09-21 15:19:22,484 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2015/004/15n/brdc0040.15n.Z
+2025-09-21 15:19:25,330 - INFO - Downloaded: data\ephemeris\2015\brdc0040.15n.Z (67063 bytes)
+2025-09-21 15:19:25,334 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2015/005/15n/brdc0050.15n.Z
+2025-09-21 15:19:27,960 - INFO - Downloaded: data\ephemeris\2015\brdc0050.15n.Z (66755 bytes)
+2025-09-21 15:19:27,963 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2015/006/15n/brdc0060.15n.Z
+2025-09-21 15:19:30,724 - INFO - Downloaded: data\ephemeris\2015\brdc0060.15n.Z (65731 bytes)
+2025-09-21 15:19:30,728 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/data/daily/2015/007/15n/brdc0070.15n.Z
+2025-09-21 15:19:33,616 - INFO - Downloaded: data\ephemeris\2015\brdc0070.15n.Z (64945 bytes)
+2025-09-21 15:19:33,620 - INFO - Completed: 7/7 files processed successfully

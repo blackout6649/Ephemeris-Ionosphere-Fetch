@@ -1,0 +1,13 @@
+2025-09-21 14:10:41,085 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/products/ionex/2015/015/igsg0150.15i.Z
+2025-09-21 14:10:48,437 - INFO - Downloaded: data\ionex\2015\igsg0150.15i.Z (190841 bytes)
+2025-09-21 14:10:48,441 - INFO - Completed: 1/1 files processed successfully
+2025-09-21 14:11:00,145 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/products/ionex/2015/015/IGS0OPSFIN_20150150000_01D_01H_GIM.INX.gz
+2025-09-21 14:11:06,192 - WARNING - File not found (404): https://cddis.nasa.gov/archive/gnss/products/ionex/2015/015/IGS0OPSFIN_20150150000_01D_01H_GIM.INX.gz - may not be available yet
+2025-09-21 14:11:06,196 - INFO - Completed: 0/1 files processed successfully
+2025-09-21 14:12:08,864 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/products/ionex/2023/015/IGS0OPSFIN_20230150000_01D_01H_GIM.INX.gz
+2025-09-21 14:12:15,589 - WARNING - File not found (404): https://cddis.nasa.gov/archive/gnss/products/ionex/2023/015/IGS0OPSFIN_20230150000_01D_01H_GIM.INX.gz - may not be available yet
+2025-09-21 14:12:15,591 - INFO - Completed: 0/1 files processed successfully
+2025-09-21 14:13:24,952 - INFO - Downloading: https://cddis.nasa.gov/archive/gnss/products/ionex/2023/015/IGS0OPSFIN_20230150000_01D_02H_GIM.INX.gz
+2025-09-21 14:13:32,277 - INFO - Downloaded: data\ionex\2023\IGS0OPSFIN_20230150000_01D_02H_GIM.INX.gz (182267 bytes)
+2025-09-21 14:13:32,286 - INFO - Decompressed: data\ionex\2023\IGS0OPSFIN_20230150000_01D_02H_GIM.INX
+2025-09-21 14:13:32,287 - INFO - Completed: 1/1 files processed successfully

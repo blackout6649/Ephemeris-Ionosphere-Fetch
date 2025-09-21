@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 """
-NASA CDDIS GNSS Broadcast Ephemeris Downloader
+NASA CDDIS GNSS Data Downloader
 
-Downloads GPS RINEX V2 BRDC and RINEX V3 multi-GNSS BRDM files from CDDIS.
-Handles Windows corporate environments with robust credential discovery.
+Downloads GPS RINEX V2 BRDC, RINEX V3 multi-GNSS , and IONEX files from CDDIS.
 
-Author: Generated for corporate Windows environment
 """
 
 import argparse
@@ -17,7 +15,6 @@ import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Optional, Tuple
-from urllib.parse import urlparse
 
 import requests
 from requests.adapters import HTTPAdapter
@@ -29,6 +26,11 @@ def setup_logging(verbose: bool = False, log_file: Optional[str] = None) -> None
     """Setup logging configuration."""
     level = logging.DEBUG if verbose else logging.INFO
     format_str = "%(asctime)s - %(levelname)s - %(message)s"
+
+    # Get root logger and remove existing handlers to avoid duplicates
+    logger = logging.getLogger()
+    for handler in logger.handlers[:]:
+        logger.removeHandler(handler)
 
     # Console handler
     logging.basicConfig(level=level, format=format_str)
@@ -43,13 +45,13 @@ def setup_logging(verbose: bool = False, log_file: Optional[str] = None) -> None
         logging.getLogger().addHandler(file_handler)
 
 
-def build_url_and_name(date: datetime, ephemeris_type: str) -> Tuple[str, str]:
+def build_url_and_name(date: datetime, data_type: str) -> Tuple[str, str]:
     """
-    Build CDDIS URL and filename for given date and ephemeris type.
+    Build CDDIS URL and filename for given date and data type.
 
     Args:
         date: Date to download
-        ephemeris_type: Either 'gps-v2' or 'brdm-v3'
+        data_type: The type of data file to download.
 
     Returns:
         Tuple of (url, filename)
@@ -57,17 +59,40 @@ def build_url_and_name(date: datetime, ephemeris_type: str) -> Tuple[str, str]:
     year = date.year
     doy = date.timetuple().tm_yday  # Day of year
     yy = year % 100  # Two-digit year
+    
+    if data_type == "gps-v2":
+        """         
+        Daily RINEX V2 GPS Broadcast Ephemeris Files
+        File Naming Convention:
+        - Before Dec 1, 2020: YYYY/DDD/YYn/brdcDDD0.YYn.Z (compressed with .Z)
+        - After Dec 1, 2020:  YYYY/DDD/YYn/brdcDDD0.YYn.gz (compressed with .gz)
+        """
+        # Check if date is after December 1, 2020
+        cutoff_date = datetime(2020, 12, 1)
 
-    if ephemeris_type == "gps-v2":
-        # GPS RINEX V2 BRDC: brdcDDD0.YYn.gz
-        filename = f"brdc{doy:03d}0.{yy:02d}n.gz"
+        if date >= cutoff_date:
+            # Use .gz extension for dates after December 1, 2020
+            filename = f"brdc{doy:03d}0.{yy:02d}n.gz"
+        else:
+            # Use .Z extension for dates before December 1, 2020
+            filename = f"brdc{doy:03d}0.{yy:02d}n.Z"
+
         url = f"https://cddis.nasa.gov/archive/gnss/data/daily/{year}/{doy:03d}/{yy:02d}n/{filename}"
-    elif ephemeris_type == "brdm-v3":
-        # RINEX V3 Multi-GNSS BRDM: BRDM00DLR_S_YYYYDDD0000_01D_MN.rnx.gz
-        filename = f"BRDM00DLR_S_{year}{doy:03d}0000_01D_MN.rnx.gz"
-        url = f"https://cddis.nasa.gov/archive/gnss/data/daily/{year}/brdc/{filename}"
+    elif data_type == "gnss-v3":
+        # Daily RINEX V3 GNSS Broadcast Ephemeris Files (IGS Combined)
+        # Note: These files are located in the /YYp/ subdirectory
+        filename = f"BRDC00IGS_R_{year}{doy:03d}0000_01D_MN.rnx.gz"
+        url = f"https://cddis.nasa.gov/archive/gnss/data/daily/{year}/{doy:03d}/{yy:02d}p/{filename}"
+    elif data_type == "ionex-v1":
+        # Old IONEX v1 format from IGS: igsgDDD0.YYi.Z
+        filename = f"igsg{doy:03d}0.{yy:02d}i.Z"
+        url = f"https://cddis.nasa.gov/archive/gnss/products/ionex/{year}/{doy:03d}/{filename}"
+    elif data_type == "ionex-v2":
+        # New IONEX format from IGS: IGS0OPSFIN_YYYYDDD0000_01D_01H_GIM.INX.gz
+        filename = f"IGS0OPSFIN_{year}{doy:03d}0000_01D_02H_GIM.INX.gz"
+        url = f"https://cddis.nasa.gov/archive/gnss/products/ionex/{year}/{doy:03d}/{filename}"
     else:
-        raise ValueError(f"Unknown ephemeris type: {ephemeris_type}")
+        raise ValueError(f"Unknown data type: {data_type}")
 
     return url, filename
 
@@ -233,10 +258,11 @@ def decompress_gzip(gz_path: Path) -> bool:
     Returns:
         True if successful, False otherwise
     """
-    if not gz_path.suffix == ".gz":
-        logging.warning(f"File is not .gz: {gz_path}")
+    if not str(gz_path).endswith(".gz"):
+        logging.warning(f"File is not a standard .gz file: {gz_path}")
         return False
 
+    # Handles extensions like .rnx.gz -> .rnx or .23i.gz -> .23i
     output_path = gz_path.with_suffix("")
 
     try:
@@ -296,18 +322,25 @@ def diagnose_environment() -> None:
     print(f"REQUESTS_CA_BUNDLE: {os.environ.get('REQUESTS_CA_BUNDLE', 'Not set')}")
 
 
+
 def main() -> int:
     """Main entry point."""
     parser = argparse.ArgumentParser(
-        description="Download NASA CDDIS GNSS broadcast ephemeris files",
+        description="Download NASA CDDIS GNSS data (ephemeris and ionosphere)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
   # Single day GPS RINEX V2
   python download_cddis_ephemeris.py --date 2025-09-18 --type gps-v2
 
-  # Date range BRDM with decompression
-  python download_cddis_ephemeris.py --start 2025-09-15 --end 2025-09-18 --type brdm-v3 --decompress
+  # Date range GNSS RINEX V3 with decompression
+  python download_cddis_ephemeris.py --start 2025-01-15 --end 2025-03-18 --type gnss-v3 --decompress
+
+  # Date range for new IONEX data 
+  python download_cddis_ephemeris.py --start 2024-01-01 --end 2024-01-05 --type ionex-v1
+
+  # Single day for old IONEX data
+  python download_cddis_ephemeris.py --date 2018-06-01 --type ionex-v2
         """
     )
 
@@ -317,8 +350,10 @@ Examples:
     date_group.add_argument("--start", help="Start date for range (YYYY-MM-DD)")
 
     parser.add_argument("--end", help="End date for range (YYYY-MM-DD)")
-    parser.add_argument("--type", choices=["gps-v2", "brdm-v3"], default="gps-v2",
-                        help="Ephemeris type to download")
+    parser.add_argument("--type",
+                        choices=["gps-v2", "gnss-v3", "ionex-v1", "ionex-v2"],
+                        default="gps-v2",
+                        help="Data type to download")
     parser.add_argument("--out", default=".", help="Output directory")
     parser.add_argument("--decompress", action="store_true",
                         help="Decompress .gz files after download")
@@ -336,8 +371,14 @@ Examples:
 
     args = parser.parse_args()
 
-    # Setup logging
-    log_file = "logs/ephemeris_downloader.log" if not args.diagnose else None
+    # Separate log files based on data type
+    log_file = None
+    if not args.diagnose:
+        if 'ionex' in args.type:
+            log_file = "logs/ionex_downloader.log"
+        else:  # For 'gps-v2', 'gnss-v3'
+            log_file = "logs/ephemeris_downloader.log"
+
     setup_logging(args.verbose, log_file)
 
     if args.diagnose:
@@ -373,28 +414,21 @@ Examples:
         if not username or not password:
             logging.error("No valid NASA Earthdata credentials found!")
             logging.error("Checked locations:")
-
-            # Show what was checked
             logging.error("1. Environment variables: EARTHDATA_USERNAME, EARTHDATA_PASSWORD")
-
             netrc_path = os.environ.get("NETRC")
             if netrc_path:
                 logging.error(f"2. Custom NETRC file: {netrc_path}")
-
             home = os.path.expanduser("~")
             if os.name == 'nt':
                 default_netrc = Path(home) / "_netrc"
             else:
                 default_netrc = Path(home) / ".netrc"
             logging.error(f"3. Default netrc file: {default_netrc}")
-
             logging.error("\nTo fix this, create a netrc file with:")
             logging.error("machine urs.earthdata.nasa.gov")
             logging.error("    login YOUR_USERNAME")
             logging.error("    password YOUR_PASSWORD")
-            logging.error("\nOr set environment variables:")
-            logging.error("EARTHDATA_USERNAME=your_username")
-            logging.error("EARTHDATA_PASSWORD=your_password")
+            logging.error("\nOr set environment variables.")
             return 1
     except Exception as e:
         logging.error(f"Credential resolution failed: {e}")
@@ -408,7 +442,6 @@ Examples:
         return 1
 
     # Process date range
-    output_dir = Path(args.out)
     current_date = start_date
     success_count = 0
     total_count = 0
@@ -416,16 +449,22 @@ Examples:
     while current_date <= end_date:
         try:
             url, filename = build_url_and_name(current_date, args.type)
-            year_dir = output_dir / str(current_date.year)
+
+            # --- CHANGE: Determine output subdirectory based on data type ---
+            base_data_dir = Path(args.out) / "data"
+            if 'ionex' in args.type:
+                data_type_folder = "ionex"
+            else:
+                data_type_folder = "ephemeris"
+
+            year_dir = base_data_dir / data_type_folder / str(current_date.year)
             file_path = year_dir / filename
 
             total_count += 1
 
             if download_one(session, url, file_path, args.skip_existing):
                 success_count += 1
-
-                # Decompress if requested
-                if args.decompress and file_path.exists() and file_path.suffix == ".gz":
+                if args.decompress and file_path.exists() and str(file_path).endswith(".gz"):
                     decompress_gzip(file_path)
 
         except Exception as e:
@@ -433,7 +472,6 @@ Examples:
 
         current_date += timedelta(days=1)
 
-    # Summary
     logging.info(f"Completed: {success_count}/{total_count} files processed successfully")
 
     if success_count == 0 and total_count > 0:
@@ -444,3 +482,4 @@ Examples:
 
 if __name__ == "__main__":
     sys.exit(main())
+
