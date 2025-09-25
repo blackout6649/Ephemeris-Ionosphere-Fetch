@@ -45,5 +45,5 @@ python download_cddis_ephemeris.py --date 2025-09-18 --type gps-v2
 ```
 
 ## Examples
-- Single day: `--date 2025-09-18 --type gps-v2`
-- Date range: `--start 2025-01-01 --end 2025-01-07 --type gnss-v3 --decompress`
+- Single day: `--date 2025-09-18 --type rinex-v2-gps`
+- Date range: `--start 2025-01-01 --end 2025-01-07 --type rinex-v3-gnss`
