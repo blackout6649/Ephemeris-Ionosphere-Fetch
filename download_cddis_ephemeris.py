@@ -60,7 +60,7 @@ def build_url_and_name(date: datetime, data_type: str) -> Tuple[str, str]:
     doy = date.timetuple().tm_yday  # Day of year
     yy = year % 100  # Two-digit year
 
-    if data_type == "gps-v2":
+    if data_type == "rinex-v2-gps":
         """         
         Daily RINEX V2 GPS Broadcast Ephemeris Files
         File Naming Convention:
@@ -78,13 +78,20 @@ def build_url_and_name(date: datetime, data_type: str) -> Tuple[str, str]:
             filename = f"brdc{doy:03d}0.{yy:02d}n.Z"
 
         url = f"https://cddis.nasa.gov/archive/gnss/data/daily/{year}/{doy:03d}/{yy:02d}n/{filename}"
-    elif data_type == "gnss-v3":
-        # Daily RINEX V3 GNSS Broadcast Ephemeris Files (IGS Combined)
-        # Note: These files are located in the /YYp/ subdirectory
+    elif data_type == "rinex-v3-gnss":
+        """
+        Daily RINEX V3 GNSS Broadcast Ephemeris Files (IGS Combined)
+        """
         filename = f"BRDC00IGS_R_{year}{doy:03d}0000_01D_MN.rnx.gz"
         url = f"https://cddis.nasa.gov/archive/gnss/data/daily/{year}/{doy:03d}/{yy:02d}p/{filename}"
+    elif data_type == "rinex-v4-gnss":
+        """
+        Daily RINEX V4 GNSS Broadcast Ephemeris Files
+        """
+        filename = f"BRD400DLR_S_{year}{doy:03d}0000_01D_MN.rnx.gz"
+        url = f"https://cddis.nasa.gov/archive/gnss/data/daily/{year}/{doy:03d}/{yy:02d}p/{filename}"
     elif data_type == "ionex-v1":
-        # Old IONEX v1 format from IGS: igsgDDD0.YYi.Z
+        # Old IONEX v1 name format from IGS: igsgDDD0.YYi.Z
         filename = f"igsg{doy:03d}0.{yy:02d}i.Z"
         url = f"https://cddis.nasa.gov/archive/gnss/products/ionex/{year}/{doy:03d}/{filename}"
     elif data_type == "ionex-v2":
@@ -347,7 +354,7 @@ Examples:
 
     parser.add_argument("--end", help="End date for range (YYYY-MM-DD)")
     parser.add_argument("--type",
-                        choices=["gps-v2", "gnss-v3", "ionex-v1", "ionex-v2"],
+                        choices=["rinex-v2-gps", "rinex-v3-gnss", "rinex-v4-gnss","ionex-v1", "ionex-v2"],
                         default="gps-v2",
                         help="Data type to download. For ionex types, will attempt fallback to other version if primary is not found.")
     parser.add_argument("--out", default=".", help="Output directory")
