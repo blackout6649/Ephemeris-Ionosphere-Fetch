@@ -2,8 +2,8 @@
 """
 NASA CDDIS GNSS Data Downloader
 
-Downloads GPS RINEX V2 BRDC, RINEX V3 multi-GNSS , and IONEX files from CDDIS.
-Includes fallback logic for IONEX types.
+Downloads GPS RINEX V2 BRDC, RINEX V3 multi-GNSS, and IONEX files from CDDIS.
+Automatically decompresses .gz and .Z files after download.
 """
 
 import argparse
@@ -11,6 +11,8 @@ import gzip
 import logging
 import netrc
 import os
+import shutil
+import subprocess
 import sys
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -214,6 +216,12 @@ def download_one(session: requests.Session, url: str, output_path: Path, skip_ex
         logging.info(f"Skipping existing file: {output_path}")
         return True
 
+    # Also check if the decompressed version exists
+    decompressed_path = output_path.with_suffix('')
+    if skip_existing and decompressed_path.exists() and output_path.suffix in ['.gz', '.Z']:
+        logging.info(f"Skipping download because decompressed file exists: {decompressed_path}")
+        return True
+
     try:
         logging.info(f"Downloading: {url}")
         response = session.get(url, stream=True)
@@ -255,36 +263,49 @@ def download_one(session: requests.Session, url: str, output_path: Path, skip_ex
         return False
 
 
-def decompress_gzip(gz_path: Path) -> bool:
+def decompress_file(file_path: Path) -> bool:
     """
-    Decompress a .gz file and remove the compressed version.
+    Decompress a .gz or .Z file and remove the original.
 
     Args:
-        gz_path: Path to .gz file
+        file_path: Path to the compressed file.
 
     Returns:
-        True if successful, False otherwise
+        True if successful, False otherwise.
     """
-    if not str(gz_path).endswith(".gz"):
-        logging.warning(f"File is not a standard .gz file: {gz_path}")
-        return False
+    suffix = file_path.suffix
+    output_path = file_path.with_suffix("")
 
-    # Handles extensions like .rnx.gz -> .rnx or .23i.gz -> .23i
-    output_path = gz_path.with_suffix("")
+    if suffix == ".gz":
+        try:
+            with gzip.open(file_path, "rb") as f_in:
+                with open(output_path, "wb") as f_out:
+                    shutil.copyfileobj(f_in, f_out)
+            file_path.unlink()  # Remove original .gz file
+            logging.info(f"Decompressed to: {output_path}")
+            return True
+        except Exception as e:
+            logging.error(f"Failed to decompress .gz file {file_path}: {e}")
+            return False
 
-    try:
-        with gzip.open(gz_path, "rb") as f_in:
-            with open(output_path, "wb") as f_out:
-                f_out.write(f_in.read())
+    elif suffix == ".Z":
+        if not shutil.which("uncompress"):
+            logging.error("The 'uncompress' command is required to handle .Z files.")
+            logging.error("On Debian/Ubuntu, install it with: sudo apt install ncompress")
+            logging.error("On RHEL/CentOS, install it with: sudo dnf install ncompress")
+            return False
+        try:
+            # The 'uncompress' command decompresses in place, removing the .Z
+            subprocess.run(["uncompress", str(file_path)], check=True, capture_output=True)
+            logging.info(f"Decompressed to: {output_path}")
+            return True
+        except (subprocess.CalledProcessError, FileNotFoundError) as e:
+            logging.error(f"Failed to decompress .Z file {file_path}: {e}")
+            return False
 
-        # Remove compressed file
-        gz_path.unlink()
-        logging.info(f"Decompressed: {output_path}")
+    else:
+        logging.debug(f"File {file_path} does not require decompression.")
         return True
-
-    except Exception as e:
-        logging.warning(f"Decompression failed for {gz_path}: {e}")
-        return False
 
 
 def diagnose_environment() -> None:
@@ -327,20 +348,21 @@ def diagnose_environment() -> None:
     print(f"HTTP_PROXY: {os.environ.get('HTTP_PROXY', 'Not set')}")
     print(f"HTTPS_PROXY: {os.environ.get('HTTPS_PROXY', 'Not set')}")
     print(f"REQUESTS_CA_BUNDLE: {os.environ.get('REQUESTS_CA_BUNDLE', 'Not set')}")
+    print(f"uncompress command available: {'Yes' if shutil.which('uncompress') else 'No'}")
 
 
 def main() -> int:
     """Main entry point."""
     parser = argparse.ArgumentParser(
-        description="Download NASA CDDIS GNSS data (ephemeris and ionosphere)",
+        description="Download and decompress NASA CDDIS GNSS data (ephemeris and ionosphere)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
   # Single day GPS RINEX V2
-  python download_cddis.py --date 2025-09-18 --type gps-v2
+  python download_cddis.py --date 2025-09-18 --type rinex-v2-gps
 
-  # Date range GNSS RINEX V3 with decompression
-  python download_cddis.py --start 2025-01-15 --end 2025-03-18 --type gnss-v3 --decompress
+  # Date range GNSS RINEX V3
+  python download_cddis.py --start 2025-01-15 --end 2025-03-18 --type rinex-v3-gnss
 
   # Date range for IONEX data (will try v2 if v1 fails, and vice versa)
   python download_cddis.py --start 2022-12-28 --end 2023-01-03 --type ionex-v1
@@ -354,14 +376,12 @@ Examples:
 
     parser.add_argument("--end", help="End date for range (YYYY-MM-DD)")
     parser.add_argument("--type",
-                        choices=["rinex-v2-gps", "rinex-v3-gnss", "rinex-v4-gnss","ionex-v1", "ionex-v2"],
-                        default="gps-v2",
+                        choices=["rinex-v2-gps", "rinex-v3-gnss", "rinex-v4-gnss", "ionex-v1", "ionex-v2"],
+                        default="rinex-v2-gps",
                         help="Data type to download. For ionex types, will attempt fallback to other version if primary is not found.")
     parser.add_argument("--out", default=".", help="Output directory")
-    parser.add_argument("--decompress", action="store_true",
-                        help="Decompress .gz files after download")
     parser.add_argument("--skip-existing", action="store_true",
-                        help="Skip files that already exist")
+                        help="Skip files that already exist (checks for compressed and decompressed versions)")
     parser.add_argument("--retries", type=int, default=3,
                         help="Number of retry attempts")
     parser.add_argument("--timeout", type=int, default=60,
@@ -379,7 +399,7 @@ Examples:
     if not args.diagnose:
         if 'ionex' in args.type:
             log_file = "logs/ionex_downloader.log"
-        else:  # For 'gps-v2', 'gnss-v3'
+        else:
             log_file = "logs/ephemeris_downloader.log"
 
     setup_logging(args.verbose, log_file)
@@ -452,6 +472,7 @@ Examples:
     while current_date <= end_date:
         total_count += 1
         download_successful = False
+        final_file_path = None
 
         try:
             primary_type = args.type
@@ -462,12 +483,11 @@ Examples:
             data_type_folder = "ionex" if 'ionex' in primary_type else "ephemeris"
             year_dir = base_data_dir / data_type_folder / str(current_date.year)
             file_path = year_dir / filename
+            final_file_path = file_path
 
             # --- Primary Download Attempt ---
             if download_one(session, url, file_path, args.skip_existing):
                 download_successful = True
-                if args.decompress and file_path.exists() and str(file_path).endswith(".gz"):
-                    decompress_gzip(file_path)
             else:
                 # --- Fallback Logic for IONEX types ---
                 ionex_fallbacks = {"ionex-v1": "ionex-v2", "ionex-v2": "ionex-v1"}
@@ -476,18 +496,17 @@ Examples:
                     logging.info(
                         f"'{primary_type}' not found for {current_date.date()}, trying fallback '{fallback_type}'")
 
-                    # Build URL and path for the fallback attempt
                     fallback_url, fallback_filename = build_url_and_name(current_date, fallback_type)
-                    fallback_file_path = year_dir / fallback_filename  # Use same directory
+                    fallback_file_path = year_dir / fallback_filename
+                    final_file_path = fallback_file_path
 
-                    # Attempt fallback download
                     if download_one(session, fallback_url, fallback_file_path, args.skip_existing):
                         download_successful = True
-                        if args.decompress and fallback_file_path.exists() and str(fallback_file_path).endswith(".gz"):
-                            decompress_gzip(fallback_file_path)
 
             if download_successful:
                 success_count += 1
+                if final_file_path and final_file_path.exists():
+                    decompress_file(final_file_path)
 
         except Exception as e:
             logging.error(f"Failed to process {current_date.strftime('%Y-%m-%d')}: {e}")
