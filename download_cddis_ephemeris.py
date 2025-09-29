@@ -263,6 +263,170 @@ def download_one(session: requests.Session, url: str, output_path: Path, skip_ex
         return False
 
 
+def decompress_lzw_z_file(file_path: Path) -> bytes:
+    """
+    Decompress a .Z file using pure Python LZW implementation.
+
+    Args:
+        file_path: Path to the .Z compressed file
+
+    Returns:
+        Decompressed data as bytes
+
+    Raises:
+        ValueError: If file format is invalid
+        Exception: If decompression fails
+    """
+    with open(file_path, "rb") as f:
+        data = f.read()
+
+    # Check magic number for .Z files
+    if len(data) < 3 or data[:2] != b'\x1f\x9d':
+        raise ValueError("Invalid .Z file format (missing magic number)")
+
+    # Get compression parameters from third byte
+    flags = data[2]
+    max_bits = flags & 0x1f
+    block_compress = (flags & 0x80) != 0
+
+    if max_bits < 9 or max_bits > 16:
+        raise ValueError(f"Invalid max_bits: {max_bits}")
+
+    # Start decompression from byte 3 onwards
+    compressed_data = data[3:]
+
+    # Initialize LZW decompression
+    clear_code = 256 if block_compress else -1
+    code_size = 9
+    max_code = (1 << code_size) - 1
+
+    # Initialize dictionary
+    dictionary = {}
+    for i in range(256):
+        dictionary[i] = bytes([i])
+
+    next_code = 257 if block_compress else 256
+    if block_compress:
+        dictionary[256] = b''  # Clear code
+
+    result = bytearray()
+    bit_buffer = 0
+    bit_count = 0
+    pos = 0
+
+    # Read first code
+    while bit_count < code_size and pos < len(compressed_data):
+        bit_buffer |= compressed_data[pos] << bit_count
+        bit_count += 8
+        pos += 1
+
+    if bit_count < code_size:
+        raise ValueError("Truncated data")
+
+    old_code = bit_buffer & max_code
+    bit_buffer >>= code_size
+    bit_count -= code_size
+
+    if old_code >= next_code:
+        raise ValueError("Invalid initial code")
+
+    if old_code == clear_code:
+        # Handle clear code at start
+        while bit_count < code_size and pos < len(compressed_data):
+            bit_buffer |= compressed_data[pos] << bit_count
+            bit_count += 8
+            pos += 1
+
+        if bit_count < code_size:
+            raise ValueError("Truncated data after clear")
+
+        old_code = bit_buffer & max_code
+        bit_buffer >>= code_size
+        bit_count -= code_size
+
+    if old_code in dictionary:
+        result.extend(dictionary[old_code])
+    else:
+        raise ValueError("Invalid code in stream")
+
+    # Main decompression loop
+    while pos < len(compressed_data) or bit_count >= code_size:
+        # Read next code
+        while bit_count < code_size and pos < len(compressed_data):
+            bit_buffer |= compressed_data[pos] << bit_count
+            bit_count += 8
+            pos += 1
+
+        if bit_count < code_size:
+            break
+
+        code = bit_buffer & max_code
+        bit_buffer >>= code_size
+        bit_count -= code_size
+
+        if code == clear_code:
+            # Reset dictionary
+            dictionary = {}
+            for i in range(256):
+                dictionary[i] = bytes([i])
+            dictionary[256] = b''
+            next_code = 257
+            code_size = 9
+            max_code = (1 << code_size) - 1
+
+            # Read next code after clear
+            while bit_count < code_size and pos < len(compressed_data):
+                bit_buffer |= compressed_data[pos] << bit_count
+                bit_count += 8
+                pos += 1
+
+            if bit_count < code_size:
+                break
+
+            old_code = bit_buffer & max_code
+            bit_buffer >>= code_size
+            bit_count -= code_size
+
+            if old_code in dictionary:
+                result.extend(dictionary[old_code])
+            continue
+
+        if code in dictionary:
+            # Code exists in dictionary
+            string = dictionary[code]
+            result.extend(string)
+
+            # Add new entry to dictionary
+            if next_code <= max_code:
+                new_string = dictionary[old_code] + string[:1]
+                dictionary[next_code] = new_string
+                next_code += 1
+
+                # Increase code size if needed
+                if next_code > max_code and code_size < max_bits:
+                    code_size += 1
+                    max_code = (1 << code_size) - 1
+
+        elif code == next_code:
+            # Code doesn't exist yet, but should be the next one
+            string = dictionary[old_code] + dictionary[old_code][:1]
+            result.extend(string)
+            dictionary[next_code] = string
+            next_code += 1
+
+            # Increase code size if needed
+            if next_code > max_code and code_size < max_bits:
+                code_size += 1
+                max_code = (1 << code_size) - 1
+
+        else:
+            raise ValueError(f"Invalid code: {code}")
+
+        old_code = code
+
+    return bytes(result)
+
+
 def decompress_file(file_path: Path) -> bool:
     """
     Decompress a .gz or .Z file and remove the original.
@@ -289,23 +453,94 @@ def decompress_file(file_path: Path) -> bool:
             return False
 
     elif suffix == ".Z":
-        if not shutil.which("uncompress"):
-            logging.error("The 'uncompress' command is required to handle .Z files.")
-            logging.error("On Debian/Ubuntu, install it with: sudo apt install ncompress")
-            logging.error("On RHEL/CentOS, install it with: sudo dnf install ncompress")
-            return False
+        # Try Python-based LZW decompression first
         try:
-            # The 'uncompress' command decompresses in place, removing the .Z
-            subprocess.run(["uncompress", str(file_path)], check=True, capture_output=True)
+            decompressed_data = decompress_lzw_z_file(file_path)
+            with open(output_path, "wb") as f_out:
+                f_out.write(decompressed_data)
+            file_path.unlink()  # Remove original .Z file
             logging.info(f"Decompressed to: {output_path}")
             return True
-        except (subprocess.CalledProcessError, FileNotFoundError) as e:
-            logging.error(f"Failed to decompress .Z file {file_path}: {e}")
-            return False
+        except Exception as e:
+            logging.warning(f"Python LZW decompression failed: {e}, trying alternatives...")
+
+        # Fallback to system uncompress command if available
+        if shutil.which("uncompress"):
+            try:
+                subprocess.run(["uncompress", str(file_path)], check=True, capture_output=True)
+                logging.info(f"Decompressed to: {output_path}")
+                return True
+            except (subprocess.CalledProcessError, FileNotFoundError) as e:
+                logging.error(f"Failed to decompress .Z file with uncompress command: {e}")
+
+        # Try using 7-zip if available (common on Windows)
+        if shutil.which("7z"):
+            try:
+                subprocess.run(["7z", "x", str(file_path), f"-o{file_path.parent}"],
+                               check=True, capture_output=True)
+                file_path.unlink()  # Remove original .Z file
+                logging.info(f"Decompressed to: {output_path}")
+                return True
+            except (subprocess.CalledProcessError, FileNotFoundError) as e:
+                logging.error(f"Failed to decompress .Z file with 7-zip: {e}")
+
+        # If all methods fail, leave the file compressed
+        logging.warning(f"Could not decompress .Z file {file_path}. File left compressed.")
+        logging.warning("To decompress .Z files, you can:")
+        logging.warning("1. Install the 'lzw' Python package: pip install lzw")
+        logging.warning("2. Install 7-zip and add it to your PATH")
+        logging.warning("3. On Linux/WSL: install ncompress package")
+        return False
 
     else:
         logging.debug(f"File {file_path} does not require decompression.")
         return True
+
+
+def convert_ionex_to_bin(input_file: Path, date: datetime) -> bool:
+    """
+    Convert IONEX file to .bin format with standardized naming convention.
+
+    Args:
+        input_file: Path to the IONEX file
+        date: Date object to determine day of year and year
+
+    Returns:
+        True if successful, False otherwise
+    """
+    if not input_file.exists():
+        logging.error(f"Input file does not exist: {input_file}")
+        return False
+
+    # Get day of year and year for naming
+    doy = date.timetuple().tm_yday  # Day of year (001-365/366)
+    year = date.year
+
+    # Create standardized bin filename: ionex0DDD_YYYY.bin
+    bin_filename = f"ionex0{doy:03d}_{year}.bin"
+    bin_output_path = input_file.parent / bin_filename
+
+    try:
+        # Copy file as-is to .bin format
+        shutil.copyfile(input_file, bin_output_path)
+        logging.info(f"Converted to BIN: {input_file.name} -> {bin_filename}")
+        return True
+    except Exception as e:
+        logging.error(f"Failed to convert {input_file} to bin format: {e}")
+        return False
+
+
+def should_convert_to_bin(data_type: str) -> bool:
+    """
+    Check if the data type should be converted to bin format.
+
+    Args:
+        data_type: The data type string
+
+    Returns:
+        True if it's an IONEX type, False otherwise
+    """
+    return data_type in ["ionex-v1", "ionex-v2"]
 
 
 def diagnose_environment() -> None:
@@ -366,6 +601,9 @@ Examples:
 
   # Date range for IONEX data (will try v2 if v1 fails, and vice versa)
   python download_cddis.py --start 2022-12-28 --end 2023-01-03 --type ionex-v1
+
+  # Download IONEX files and convert to bin format
+  python download_cddis.py --date 2018-01-01 --type ionex-v1 --bin
         """
     )
 
@@ -380,6 +618,8 @@ Examples:
                         default="rinex-v2-gps",
                         help="Data type to download. For ionex types, will attempt fallback to other version if primary is not found.")
     parser.add_argument("--out", default=".", help="Output directory")
+    parser.add_argument("--bin", action="store_true",
+                        help="Convert IONEX files to standardized .bin format (ionex0DDD_YYYY.bin)")
     parser.add_argument("--skip-existing", action="store_true",
                         help="Skip files that already exist (checks for compressed and decompressed versions)")
     parser.add_argument("--retries", type=int, default=3,
@@ -506,7 +746,22 @@ Examples:
             if download_successful:
                 success_count += 1
                 if final_file_path and final_file_path.exists():
-                    decompress_file(final_file_path)
+                    # Decompress the file
+                    decompress_successful = decompress_file(final_file_path)
+
+                    # Convert to bin if requested and it's an IONEX file
+                    if args.bin and should_convert_to_bin(primary_type) and decompress_successful:
+                        # Find the decompressed file
+                        decompressed_file = final_file_path.with_suffix('')
+                        if decompressed_file.exists():
+                            convert_ionex_to_bin(decompressed_file, current_date)
+                        else:
+                            logging.warning(f"Decompressed file not found for bin conversion: {decompressed_file}")
+                    elif args.bin and should_convert_to_bin(primary_type) and not decompress_successful:
+                        # If decompression failed but we still have the original file, try to convert it
+                        if final_file_path.exists():
+                            logging.info("Decompression failed, attempting bin conversion of compressed file")
+                            convert_ionex_to_bin(final_file_path, current_date)
 
         except Exception as e:
             logging.error(f"Failed to process {current_date.strftime('%Y-%m-%d')}: {e}")
